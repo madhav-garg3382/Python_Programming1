@@ -1,9 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-result = None   # Data not loaded yet
+result = None   
 
-# Main Menu
+
 while(True):
     print("\nMain Menu")
     print("1. Fetch data")
@@ -18,7 +18,7 @@ while(True):
 
     ch=int(input("Enter your choice: "))
 
-    # FETCH DATA
+    
     if ch==1:
         try:
             result=pd.read_csv("results.csv",index_col=0)
@@ -26,12 +26,12 @@ while(True):
         except:
             print("❌ File not found! Keep results.csv in same folder.")
 
-    # STOP OTHER OPTIONS IF DATA NOT LOADED
+   
     elif result is None:
         print("⚠ Please fetch data first (Press 1)")
         continue
 
-    # ================= STATISTICS =================
+    
     elif ch==2:
         while(True):
             print("\nDataframe Statistics Menu")
@@ -63,7 +63,6 @@ while(True):
             elif ch2==8:
                 break
 
-    # ================= DISPLAY RECORDS =================
     elif ch==3:
         while(True):
             print("\nDisplay Records Menu")
@@ -95,7 +94,7 @@ while(True):
             elif ch3==7:
                 break
 
-    # ================= DATA VISUALIZATION =================
+    
     elif ch==7:
         plt.plot(result.index,result['highest'],marker='o')
         plt.title("SUBJECTWISE HIGHEST MARKS")
@@ -105,7 +104,7 @@ while(True):
         plt.grid(True)
         plt.show()
 
-    # ================= DATA ANALYTICS =================
+   
     elif ch==8:
         m=result['average'].max()
         s=result.loc[result.average==m]

@@ -10,4 +10,4 @@ while num > 0:
 if original == reverse:
     print("Palindrome") 
 else:
-    print("Not a palindrome")       
+    print("Not a palindrome")      
